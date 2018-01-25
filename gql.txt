@@ -1,0 +1,20 @@
+curl https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql \
+-H "Content-Type: application/graphql" \
+-d @- << DATA
+{
+  stops(name: "Gransinmäki") {
+    name
+    lat
+    lon
+    wheelchairBoarding
+    patterns{
+	    name
+	    route{
+	        shortName
+	        longName
+	    }
+	    directionId
+    }
+  }
+}
+DATA
